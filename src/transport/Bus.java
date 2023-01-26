@@ -1,6 +1,8 @@
 package transport;
 
+import drivers.Driver;
 import enums.NumberOfSeats;
+import exceptions.LicenseException;
 
 public class Bus extends Transport implements Competing{
     private NumberOfSeats numberOfSeats;
@@ -36,5 +38,11 @@ public class Bus extends Transport implements Competing{
                 + "модель " + getModel() + "\n"
                 + "объем двигателя " + getEngineVolume()
                 + numberOfSeats;
+    }
+
+    @Override
+    public boolean diagnostics(Driver driver) throws LicenseException {
+        System.out.println("Автобус не может проходить диагностику!");
+        return false;
     }
 }

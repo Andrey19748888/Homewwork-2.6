@@ -4,6 +4,7 @@ import drivers.Driver;
 import enums.Kuzov;
 import enums.LoadCapasity;
 import enums.NumberOfSeats;
+import exceptions.LicenseException;
 import transport.Bus;
 import transport.Car;
 import transport.Truck;
@@ -49,15 +50,32 @@ public class Main {
         alex.drive();
         DDriver denis = new DDriver("Denis", "D", 10, daf);
 
+
+        try {
+            System.out.println(man.diagnostics(ivan));
+        } catch (LicenseException e) {
+            System.out.println(e);
+        }
+
+
+        try {
+            System.out.println(ikarus.diagnostics(ivan));
+        } catch (LicenseException e) {
+            System.out.println(e);
+        }
+
+        try {
+            System.out.println(lada.diagnostics(ivan));
+        } catch (LicenseException e) {
+            System.out.println(e);
+        }
+
         audi.setKuzov(Kuzov.SEDAN);
 
         System.out.println(audi.getKuzov());
 
 
 
-        audi.setKuzov(Kuzov.SEDAN);
-
-        System.out.println(audi.getKuzov());
 
         try {
             System.out.println(Data.checkPassword("", "Andrei123", "Andrei123"));

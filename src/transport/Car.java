@@ -1,6 +1,8 @@
 package transport;
 
+import drivers.Driver;
 import enums.Kuzov;
+import exceptions.LicenseException;
 
 public class Car extends Transport implements Competing{
 
@@ -46,6 +48,15 @@ public class Car extends Transport implements Competing{
     @Override
     public void maxSpeed(){
         System.out.println("Car " + getBrand() + getModel() + " done bestTime");}
+
+    @Override
+    public boolean diagnostics(Driver driver) throws LicenseException {
+        if ("B" != driver.getLicense()) {
+            throw new LicenseException();
+        } else {
+            return true;
+        }
+    }
 
 
 

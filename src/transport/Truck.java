@@ -1,6 +1,8 @@
 package transport;
 
+import drivers.Driver;
 import enums.LoadCapasity;
+import exceptions.LicenseException;
 
 public class Truck extends Transport implements Competing{
 
@@ -38,6 +40,15 @@ public class Truck extends Transport implements Competing{
                 + "\nмодель " + getModel()
                 + "\nобъем двигателя " + getEngineVolume()
                 + "\n" + loadCapasity;
+    }
+
+    @Override
+    public boolean diagnostics(Driver driver) throws LicenseException {
+        if (driver.getLicense() != "D") {
+            throw new LicenseException();
+        } else {
+            return true;
+        }
     }
 
 }

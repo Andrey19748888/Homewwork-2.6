@@ -1,5 +1,8 @@
 package transport;
 
+import drivers.Driver;
+import exceptions.LicenseException;
+
 public abstract class Transport implements Competing {
     private String brand;
     private String model;
@@ -29,6 +32,8 @@ public abstract class Transport implements Competing {
     public void finishTheMove() {
 
     }
+
+    public abstract boolean diagnostics(Driver driver) throws LicenseException;
 
 
 
